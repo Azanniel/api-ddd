@@ -39,3 +39,5 @@ Entidades representam objetos do mundo real que possuem uma identidade e que man
 Já casos de uso descrevem as funcionalidades (ações) que o software deve realizar para atender às necessidades dos usuários ou do negócio.
 
 Eles são essenciais para a definição do escopo e da arquitetura do sistema, e ajudam a garantir que o software seja desenvolvido para atender às necessidades do usuário final.
+
+Através da POO, podemos criar classes que representam essas entidades e casos de uso, tornando o código mais organizado e estruturado.
