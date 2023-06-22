@@ -32,7 +32,7 @@ O domínio é uma área de entendimento onde todas as pessoas envolvidas na cons
 - Domain Experts: São as pessoas que entendem a fundo a problemática que estamos resolvendo com o software;
 - Linguagem ubíqua: É uma linguagem universal em que todas as pessoas envolvidas com a construção daquele software conseguem conversar por igual.
 
-## Entidades e casos de uso
+### Entidades e casos de uso
 
 Entidades representam objetos do mundo real que possuem uma identidade e que mantêm um estado que é relevante para a aplicação.
 
