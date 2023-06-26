@@ -41,3 +41,9 @@ Já casos de uso descrevem as funcionalidades (ações) que o software deve real
 Eles são essenciais para a definição do escopo e da arquitetura do sistema, e ajudam a garantir que o software seja desenvolvido para atender às necessidades do usuário final.
 
 Através da POO, podemos criar classes que representam essas entidades e casos de uso, tornando o código mais organizado e estruturado.
+
+### Value Objects
+
+Existem certas propriedades de uma entidade que são quase que uma entidade por si só, isso pode ocorrer pela quantidade de regras associadas a elas ou comportamentos específicos de uma propriedade. Isso, dentro do DDD, chamamos de Value Objects.
+
+Os values objects são valores ou propriedades das nossas entidades que possuem regras de negócio associadas a elas. Essas regras podem ser formatações, validações e etc.
