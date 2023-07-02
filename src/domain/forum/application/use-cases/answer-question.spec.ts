@@ -1,5 +1,5 @@
-import { InMemoryAnswersRepository } from "test/repositories/in-memory-answers-repository"
-import { AnswerQuestionUseCase } from "./answer-question"
+import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-repository'
+import { AnswerQuestionUseCase } from './answer-question'
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository
 let sut: AnswerQuestionUseCase /** SUT -> System under test */
@@ -14,7 +14,7 @@ describe('Create answer to a question', () => {
     const { answer } = await sut.execute({
       questionId: '1',
       instructorId: '1',
-      content: 'Conteúdo da resposta'
+      content: 'Conteúdo da resposta',
     })
 
     expect(answer.id).toBeTruthy()
