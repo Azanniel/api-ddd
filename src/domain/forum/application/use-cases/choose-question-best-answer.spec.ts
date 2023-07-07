@@ -21,7 +21,7 @@ describe('Choose question best answer', () => {
   })
 
   it('should be able to choose question best answer', async () => {
-    const question = makeQuestion({})
+    const question = makeQuestion()
     const answer = makeAnswer({ questionId: question.id })
 
     await inMemoryQuestionsRepository.create(question)

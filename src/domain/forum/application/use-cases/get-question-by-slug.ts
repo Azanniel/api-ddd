@@ -1,20 +1,20 @@
 import { Question } from '../../enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/questions-repository'
 
-interface GetQuestionBySlugRequest {
+interface GetQuestionBySlugUseCaseRequest {
   slug: string
 }
 
-interface GetQuestionBySlugResponse {
+interface GetQuestionBySlugUseCaseResponse {
   question: Question
 }
 
-export class GetQuestionBySlug {
+export class GetQuestionBySlugUseCase {
   constructor(private questionsRepository: QuestionsRepository) {}
 
   public async execute({
     slug,
-  }: GetQuestionBySlugRequest): Promise<GetQuestionBySlugResponse> {
+  }: GetQuestionBySlugUseCaseRequest): Promise<GetQuestionBySlugUseCaseResponse> {
     const question = await this.questionsRepository.findBySlug(slug)
 
     if (!question) {
