@@ -2,7 +2,7 @@
   <h1>
     <img src="https://user-images.githubusercontent.com/71537090/214130327-4d796169-1ae2-43aa-bbc5-4b0131d80083.png" />
   </h1>
-  
+
   > WIP: Projeto em desenvolvimento do módulo de DDD
 </div>
 
