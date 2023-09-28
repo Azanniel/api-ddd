@@ -1,12 +1,7 @@
 {
-  "extends": [
-    "@rocketseat/eslint-config/node",
-    "plugin:vitest-globals/recommended"
-  ],
-  "env": {
-    "vitest-globals/env": true
-  },
+  "extends": "@rocketseat/eslint-config/node",
   "rules": {
-    "no-useless-constructor": "off"
+    "no-useless-constructor": "off",
+    "no-new": "off"
   }
 }

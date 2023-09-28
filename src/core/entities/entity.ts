@@ -13,7 +13,7 @@ export abstract class Entity<Props> {
     return this._id
   }
 
-  equals(entity: Entity<any>) {
+  equals(entity: Entity<unknown>) {
     if (entity === this) {
       return true
     }

@@ -1,100 +1,102 @@
-<div align="center">
-  <h1>
-    <img src="https://user-images.githubusercontent.com/71537090/214130327-4d796169-1ae2-43aa-bbc5-4b0131d80083.png" />
-  </h1>
+<h4 align="center">
+  <img src=".github/nest.svg" />
 
-  > WIP: Projeto em desenvolvimento do módulo de DDD
-</div>
+  <p>DDD + NestJS - Fórum API</p>
+</h4>
 
-## ✨ Tecnologias
+Aplicação para aprender os princípios do Domain Driven Design (DDD) e juntar tudo em um só projeto com NestJS. Além disso, dividindo a aplicação em camadas para facilitar o desenvolvimento e manter o código organizado.
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+Nessa aplicação será desenvolvido um Fórum onde o usuário pode acessar, enviar tópicos, criar perguntas, enviar respostas, selecionar a resposta como a resposta que respondeu seu tópico e deixar um comentário.
 
-- NodeJS
-- Typescript
+> ⚠️ Aplicação com finalidade de desenvolver minhas habilidades com NestJS + DDD
 
-## 🧪 Projeto
+## ✨ Tecnologias relevantes
 
-Será desenvolvida uma aplicação do estilo de um fórum onde o usuário pode acessar, enviar tópicos, criar perguntas, enviar respostas, selecionar a resposta como a resposta que respondeu seu tópico.
+- [NestJS](https://docs.nestjs.com): Nest (NestJS) é uma estrutura para a construção de aplicativos Node.js do lado do servidor eficientes e escalonáveis.
+- [Zod](https://zod.dev): Zod é uma biblioteca de validação de dados para TypeScript.
+- [Passport](https://www.passportjs.org/): Passport é uma biblioteca de autenticação de usuários do lado do servidor.
+- [Passport JWT](https://www.passportjs.org/packages/passport-jwt/): Uma estratégia do Passport para autenticação com um JSON Web Token, este módulo permite autenticar endpoints usando um token web JSON.
+- [Prisma](https://www.prisma.io/): Prisma é uma biblioteca de persistência de banco de dados para Node.js
 
-## 📋 Anotações das aulas
+## 🚀 Projeto
 
-Design de Software se refere à criação intencional e organizada de sistemas de software, com o objetivo de satisfazer necessidades específicas dos usuários, cumprir requisitos de qualidade e de performance, e garantir a manutenibilidade do código.
+Nesse projeto estou usando a estrutura NestJS, que é uma estrutura para a construção de aplicativos Node.js do lado do servidor eficientes e escaláveis, para criar uma API de Fórum.
 
-Já o DDD (Domain Driven Design) é uma abordagem de design de software que se concentra na modelagem do domínio da aplicação, visando representar as regras e conceitos de negócios do mundo real.
+As aulas que estou assistindo para o desenvolvimento desse projeto abordam conceitos de Domain Driven Design (DDD), NestJS e até Clean Architecture. Logo separei outras leituras para as anotações das aulas:
 
-A principal diferença é que o Design de Software se concentra na arquitetura geral do sistema, enquanto o DDD enfatiza a modelagem do domínio.
+- [📃 Anotações sobre NestJS](./.github/notes-about-nestjs.md)
+- [📃 Anotações sobre DDD](./.github/notes-about-ddd.md)
 
-### Domínio
+## 🧑‍🏭 Executando a aplicação
 
-O domínio (domain) refere-se a um conjunto de conceitos, regras, processos e comportamentos que são fundamentais para um determinado negócio ou aplicação. É a área de conhecimento que descreve e organiza todo o conhecimento e entendimento necessário para desenvolver um software que atenda às necessidades do negócio ou aplicação.
+Levando em conta que o projeto já foi clonado e está com todas as dependências instaladas usando seu principal gerenciador de pacotes:
 
-O domínio é a base do DDD e é a partir dele que os modelos de negócio são construídos. Ele é composto por um conjunto de entidades, agregados, serviços e eventos que representam conceitos fundamentais do negócio. O conhecimento do domínio é essencial para que os desenvolvedores possam entender as necessidades do negócio e construir um software que atenda a essas necessidades de forma eficiente e eficaz.
+```bash
+$ pnpm install
+```
 
-Além disso, o DDD enfatiza a importância da comunicação clara e constante entre os desenvolvedores e os especialistas do domínio (conhecidos como especialistas do domínio ou domain experts), para que o conhecimento do domínio possa ser compartilhado e incorporado ao processo de desenvolvimento de software.
+Adicione as variáveis de ambiente copiando o arquivo `.env.example` e renomeando para `.env`:
 
-### Entidades
+```properties
+# Database
+DATABASE_URL="postgresql://postgres:docker@localhost:5432/forum-api?schema=public"
 
-Entidades representam objetos do mundo real que possuem uma identidade e que mantêm um estado que é relevante para a aplicação.
+# Auth
+JWT_PRIVATE_KEY=""
+JWT_PUBLIC_KEY=""
 
-Já casos de uso descrevem as funcionalidades (ações) que o software deve realizar para atender às necessidades dos usuários ou do negócio.
+# Application
+PORT=""
+```
 
-Eles são essenciais para a definição do escopo e da arquitetura do sistema, e ajudam a garantir que o software seja desenvolvido para atender às necessidades do usuário final.
+A estratégia de autenticação usada é JWT com algorítimo RSA-256. Logo você deve gerar as chaves pública e privada do algoritmo e convertê-las para Base64.
 
-Através da POO, podemos criar classes que representam essas entidades e casos de uso, tornando o código mais organizado e estruturado.
+```bash
+$ openssl genrsa -out private.pem 2048
+$ openssl rsa -in private.pem -pubout -out public.pem
 
-As entidades (entities) são objetos de domínio que representam conceitos importantes do negócio. Elas são responsáveis por encapsular o estado e o comportamento relacionado a esses conceitos, e são fundamentais para a modelagem do domínio.
+$ base64 private.pem
+$ base64 public.pem
+```
 
-Uma entidade é caracterizada por ter uma identidade única e constante, que a diferencia de outras entidades do mesmo tipo.
+Usando o docker-compose inicie os serviços necessários para executar a aplicação com:
 
-Elas são importantes para o DDD porque elas representam as principais abstrações do domínio, e a sua correta modelagem ajuda a garantir que o software reflita de forma precisa as regras e o comportamento do negócio. Além disso, as entidades costumam ser o ponto de entrada para outras operações do sistema, como validações, cálculos e regras de negócio específicas.
+```bash
+$ docker-compose up -d
+```
 
-### Casos de uso
+Não esqueça de rodar as migrações:
 
-Os casos de uso (use cases) são uma técnica para descrever os requisitos funcionais de um sistema. Eles descrevem uma interação específica entre o usuário e o sistema, mostrando quais ações o usuário realiza e como o sistema responde a essas ações.
+```bash
+$ pnpm prisma migrate dev
+```
 
-Eles são uma parte importante do processo de desenvolvimento de software, pois ajudam a definir os requisitos do sistema e a garantir que ele atenda às necessidades dos usuários finais.
+Após isso basta iniciar a aplicação (desenvolvimento):
 
-### Linguagem ubíqua
+```bash
+$ pnpm run start:dev
+```
 
-A linguagem ubíqua (ubiquitous language) é uma técnica que consiste em usar uma linguagem comum, compreensível tanto para desenvolvedores quanto para especialistas do domínio, para descrever e entender os conceitos e processos do domínio em questão.
+## 🦉 Requisições
 
-Ela é importante porque ajuda a alinhar a comunicação entre os membros da equipe de desenvolvimento e os especialistas do domínio. Usando uma linguagem comum, todos os envolvidos no projeto podem ter uma compreensão compartilhada dos termos e conceitos-chave do domínio, facilitando o desenvolvimento de um software que atenda às necessidades do negócio.
+Para testar as requisições da aplicação estou usando a extensão do VSCode chamada [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) e com ela criei um arquivo chamado `client.http` na raiz do projeto onde estão listadas todas as rotas da aplicação.
 
-Além disso, ela deve ser incorporada no código-fonte do software e em documentos relacionados, como diagramas e documentação técnica, para garantir que todos os envolvidos usem a mesma terminologia. Dessa forma, a linguagem ubíqua ajuda a garantir que o software seja construído para atender às necessidades do negócio e que todos os envolvidos no projeto estejam na mesma página.
+## 🧪 Testes
 
-### Agregados
+Nesse projeto estou utilizando testes unitários e testes de ponta a ponta (e2e) e para executar basta rodar os comandos:
 
-Um agregado (aggregate) é um conjunto de objetos de domínio que são tratados como uma unidade coesa. Eles são usados para delimitar transações consistentes de mudança de estado dentro do domínio.
+```bash
+# Testes unitários
+$ pnpm run test
 
-Um agregado tem uma raiz de agregado (aggregate root), que é uma única entidade que é responsável por garantir a consistência do agregado como um todo. A raiz do agregado é a única entidade que pode ser referenciada de fora do agregado. Todas as outras entidades dentro do agregado só podem ser acessadas através da raiz do agregado.
+# Testes de ponta a ponta
+$ pnpm run test:e2e
+```
 
-O uso deles é uma das principais técnicas para gerenciar a complexidade em sistemas de software baseados em DDD. Ao definir os limites do agregado, é possível criar um modelo de domínio mais claro e focado, com transações e responsabilidades bem definidas para cada objeto no agregado.
+## ☕ Contatos
 
-### Bounded contexts
+Você vai me encontrar em qualquer uma das redes sociais abaixo:
 
-Bounded Context (contexto delimitado / subdomínio) é uma técnica para definir limites explícitos em torno de um conjunto de modelos de domínio. Cada Bounded Context é uma fronteira lógica que separa um modelo de domínio específico, com suas próprias regras, termos e limites, de outros modelos de domínio dentro do mesmo sistema.
-
-Um Bounded Context pode ser visto como um subdomínio ou um setor de um sistema maior, onde as interações entre os objetos de domínio são altamente relacionadas. Dentro de um Bounded Context, as regras de negócio podem ser diferentes e podem ter nomes de entidades ou conceitos com significados distintos em outros contextos.
-
-Essa técnica ajuda a evitar a confusão entre diferentes conceitos de negócio, evita a duplicação de código e reduz a complexidade do sistema. Cada Bounded Context pode ter sua própria arquitetura, padrões de projeto e tecnologias, permitindo que a equipe de desenvolvimento escolha as ferramentas mais adequadas para lidar com as especificidades do contexto.
-
-Além disso, o DDD incentiva a comunicação clara e colaboração entre diferentes Bounded Contexts, por meio de integrações bem definidas e acordos claros de como os objetos de domínio serão compartilhados entre os contextos.
-
-O estabelecimento de Bounded Contexts é uma parte importante da modelagem de um sistema baseado em DDD e deve ser conduzido em estreita colaboração entre a equipe de desenvolvimento e especialistas do domínio para garantir que as fronteiras do contexto sejam bem definidas e compreendidas.
-
-### Value object
-
-Um Value Object (objeto de valor) é uma classe que representa um valor que é importante para o domínio, mas que não possui identidade própria. Em outras palavras, um Value Object é um objeto que é definido pelos seus atributos, em vez de ser definido por uma identidade exclusiva.
-
-Por exemplo, em um sistema de compras online, um Endereço pode ser modelado como um Value Object, pois não é importante manter um identificador único para cada endereço, mas sim os seus atributos, como rua, número, bairro, cidade, estado e CEP. Do ponto de vista do negócio, o endereço é apenas uma informação que precisa ser armazenada e consultada, não sendo uma entidade que precisa ser rastreada ou gerenciada.
-
-Porém, é importante lembrar que nem todos os objetos sem identidade são necessariamente Value Objects. A decisão de modelar um objeto como um Value Object depende do contexto do domínio e da análise dos especialistas do negócio e da equipe de desenvolvimento.
-
-### Eventos de domínio
-
-Um evento de domínio (domain event) é uma notificação assíncrona que indica que algo importante aconteceu no domínio do sistema. Ele representa um fato ocorrido dentro do sistema que pode ser interessante para outras partes do sistema e pode ser usado para tomar decisões ou gerar novas ações.
-
-Por exemplo, em um sistema de comércio eletrônico, um evento de domínio pode ser gerado quando uma nova compra é realizada com sucesso. Esse evento pode conter informações como o identificador da compra, o valor total, o endereço de entrega, entre outras informações relevantes para o domínio.
-
-Eventos de domínio são importantes porque permitem que diferentes partes do sistema sejam notificadas e atualizadas quando ocorrem mudanças importantes no domínio. Eles também permitem que o sistema seja projetado de forma mais modular e escalável, pois diferentes partes do sistema podem ser projetadas para reagir a diferentes tipos de eventos, de forma independente.
+<a href = "mailto: leo.azannielttt@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23EA4335?style=for-the-badge&logo=gmail&logoColor=white" target="_blank" margin-right="10px"></a>
+<a href="https://www.linkedin.com/in/leandroazanniel/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+<a href="https://api.whatsapp.com/send?phone=5592985406269" target="_blank"><img src="https://img.shields.io/badge/-WhatsApp-%25D366?style=for-the-badge&logo=whatsapp&logoColor=white" target="_blank"></a>
