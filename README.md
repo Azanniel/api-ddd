@@ -26,6 +26,7 @@ As aulas que estou assistindo para o desenvolvimento desse projeto abordam conce
 
 - [📃 Anotações sobre NestJS](./.github/notes-about-nestjs.md)
 - [📃 Anotações sobre DDD](./.github/notes-about-ddd.md)
+- [📃 Anotações sobre arquitetura](./.github/notes-about-architecture.md)
 
 ## 🧑‍🏭 Executando a aplicação
 
