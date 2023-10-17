@@ -16,3 +16,9 @@ Além disso, é importante entender que o fluxo acima não é linear e é comum 
 Na aplicação temos os repositórios na camada de domínio de fórum que nada mais são do que contratos que estipulam como as implementações devem interagir. Sendo assim na camada de infra criamos um módulo de banco de dados que utiliza dessas interfaces de repositórios e implementa com o Prisma as operações de banco de dados. 
 
 O módulo de banco de dados funciona independente, pois, em algum momento, esse módulo pode conter a implementação usando outra tecnologia que não o prisma.
+
+## 🗺️ Mappers
+
+Os mappers são responsáveis por converter uma entidade de um formato para outro, permitindo que diferentes camadas da aplicação trabalhem com representações diferentes da mesma entidade.
+
+Implementamos um exemplo de mapper nesta aplicação, o PrismaQuestionMapper, que converte uma entidade do Prisma para uma entidade do domínio. Isso nos permite retornar a entidade correta do repositório, evitando conflitos de tipos.
