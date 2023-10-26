@@ -22,3 +22,7 @@ O módulo de banco de dados funciona independente, pois, em algum momento, esse 
 Os mappers são responsáveis por converter uma entidade de um formato para outro, permitindo que diferentes camadas da aplicação trabalhem com representações diferentes da mesma entidade.
 
 Implementamos um exemplo de mapper nesta aplicação, o PrismaQuestionMapper, que converte uma entidade do Prisma para uma entidade do domínio. Isso nos permite retornar a entidade correta do repositório, evitando conflitos de tipos.
+
+## 🚪 Gateway
+
+É uma camada que atua como intermediária entre os componentes internos de um sistema de software e as fontes externas de dados, como bancos de dados, serviços web ou dispositivos de entrada/saída. Sua principal função é isolar as partes centrais do sistema das complexidades externas e das tecnologias específicas usadas para acessar dados ou interagir com o mundo exterior.
