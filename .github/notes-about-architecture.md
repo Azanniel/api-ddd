@@ -26,3 +26,7 @@ Implementamos um exemplo de mapper nesta aplicação, o PrismaQuestionMapper, qu
 ## 🚪 Gateway
 
 É uma camada que atua como intermediária entre os componentes internos de um sistema de software e as fontes externas de dados, como bancos de dados, serviços web ou dispositivos de entrada/saída. Sua principal função é isolar as partes centrais do sistema das complexidades externas e das tecnologias específicas usadas para acessar dados ou interagir com o mundo exterior.
+
+## 🎭 Stubs
+
+Um stub é uma implementação fictícia de um contrato, usado para testes. Vamos criar uma classe chamada fakeHasher que implementa tanto o HashGenerator quanto o HashCompare.
