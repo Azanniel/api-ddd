@@ -21,7 +21,7 @@ describe('Get question by slug (E2E)', () => {
     }).compile()
 
     app = moduleRef.createNestApplication()
-    
+
     studentFactory = moduleRef.get(StudentFactory)
     questionFactory = moduleRef.get(QuestionFactory)
     jwt = moduleRef.get(JwtService)
