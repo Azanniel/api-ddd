@@ -52,7 +52,7 @@ export class PrismaQuestionCommentsRepository
   }
 
   async delete(questionComment: QuestionComment): Promise<void> {
-    await this.prisma.question.delete({
+    await this.prisma.comment.delete({
       where: {
         id: questionComment.id.toString(),
       },
