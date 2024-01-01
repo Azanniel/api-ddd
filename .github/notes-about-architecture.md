@@ -30,3 +30,7 @@ Implementamos um exemplo de mapper nesta aplicação, o PrismaQuestionMapper, qu
 ## 🎭 Stubs
 
 Um stub é uma implementação fictícia de um contrato, usado para testes. Vamos criar uma classe chamada fakeHasher que implementa tanto o HashGenerator quanto o HashCompare.
+
+## 📂 Upload de arquivos
+
+Ao lidar com anexos, é interessante separar essa funcionalidade em uma rota específica, para evitar problemas com o envio de arquivos em formato JSON.
