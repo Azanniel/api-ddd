@@ -34,3 +34,4 @@ Um stub é uma implementação fictícia de um contrato, usado para testes. Vamo
 ## 📂 Upload de arquivos
 
 Ao lidar com anexos, é interessante separar essa funcionalidade em uma rota específica, para evitar problemas com o envio de arquivos em formato JSON.
+Uma ótima opção de upload de arquivos é o Cloudflare R2, que é mais barato e não cobra taxa de egressos.
