@@ -35,3 +35,12 @@ Um stub é uma implementação fictícia de um contrato, usado para testes. Vamo
 
 Ao lidar com anexos, é interessante separar essa funcionalidade em uma rota específica, para evitar problemas com o envio de arquivos em formato JSON.
 Uma ótima opção de upload de arquivos é o Cloudflare R2, que é mais barato e não cobra taxa de egressos.
+
+## 🤷 Desafios usando REST
+
+Existe um motivo pelo qual o GraphQL surgiu, todas as aplicações que utilizam REST, se tornaram mais complexas e complexas. Por isso, o GraphQL foi criado para trazer mais simplicidade e flexibilidade na aplicação.
+No entanto, aqui utilizamos REST, e vamos discutir quais os desafios enfrentamos ao lidar com aplicações que usam REST(OverFetching & UnderFetching).
+
+O OverFetching é quando retornamos informações demais do backend em rotas que não precisam daquelas informações. Por exemplo: Em uma requisição trazer os dados do autor, pergunta e respostas. No entanto se eu precisa dos dados de autor e pergunta somente eu não terei, pois terei uma rota que retorna tudo.
+
+O UnderFetching é quando não estamos tendo dados suficientes com uma chamada para um endpoint do backed, forçando-nos a chamar um segundo endpoint. Ou seja, é quando temos dados de menos e temos que chamar outros endpoints para obter os dados que precisamos e acabamos executando muitas chamadas ao backend.
