@@ -1,12 +1,16 @@
-export class Slug {
-  public value: string
+import { ValueObject } from '@/core/entities/value-object'
 
-  private constructor(value: string) {
-    this.value = value
+export interface SlugProps {
+  value: string
+}
+
+export class Slug extends ValueObject<SlugProps> {
+  get value() {
+    return this.props.value
   }
 
   static create(slug: string) {
-    return new Slug(slug)
+    return new Slug({ value: slug })
   }
 
   /**
@@ -27,6 +31,6 @@ export class Slug {
       .replace(/--+/g, '-')
       .replace(/-$/g, '-')
 
-    return new Slug(slugText)
+    return new Slug({ value: slugText })
   }
 }
