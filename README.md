@@ -17,6 +17,7 @@ Nessa aplicação será desenvolvido um Fórum onde o usuário pode acessar, env
 - [Passport](https://www.passportjs.org/): Passport é uma biblioteca de autenticação de usuários do lado do servidor.
 - [Passport JWT](https://www.passportjs.org/packages/passport-jwt/): Uma estratégia do Passport para autenticação com um JSON Web Token, este módulo permite autenticar endpoints usando um token web JSON.
 - [Prisma](https://www.prisma.io/): Prisma é uma biblioteca de persistência de banco de dados para Node.js
+- [Cloudflare](https://www.cloudflare.com/): Cloudflare e uma plataforma de armazenamento de dados de rede.
 
 ## 🚀 Projeto
 
@@ -48,6 +49,13 @@ JWT_PUBLIC_KEY=""
 
 # Application
 PORT=""
+
+# Storage (AWS / Cloudflare)
+AWS_BUCKET_NAME=""
+AWS_ACCESS_KEY_ID=""
+AWS_SECRET_ACCESS_KEY=""
+
+CLOUDFLARE_ACCOUNT_ID=""
 ```
 
 A estratégia de autenticação usada é JWT com algorítimo RSA-256. Logo você deve gerar as chaves pública e privada do algoritmo e convertê-las para Base64.
@@ -58,6 +66,16 @@ $ openssl rsa -in private.pem -pubout -out public.pem
 
 $ base64 private.pem
 $ base64 public.pem
+```
+
+Além disso, usamos Cloudflare R2 para armazenamento de anexos de perguntas e respostas. O interessante é que ele usa a mesma API do AWS S3 o que facilita na questão de troca caso seja necessário. Dado isso, para realização dos testes de ponta a ponta (e2e) basta que o bucket seja criado na Cloudflare com lifecycle(tempo de vida) de 1 dia para que os anexos de testes não sejam acumulados.
+
+Para fazer um override das variáveis de ambiente para testes use o arquivo `.env.test` substituindo o que precisar, exemplo:
+
+```bash
+# Override env variables during tests
+
+AWS_BUCKET_NAME="ignite-nest-forum-ddd-test"
 ```
 
 Usando o docker-compose inicie os serviços necessários para executar a aplicação com:
