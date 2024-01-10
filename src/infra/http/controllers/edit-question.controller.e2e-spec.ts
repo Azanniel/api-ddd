@@ -7,7 +7,7 @@ import { JwtService } from '@nestjs/jwt'
 import { StudentFactory } from 'test/factories/make-student'
 import { DatabaseModule } from '@/infra/database/database.module'
 import { QuestionFactory } from 'test/factories/make-question'
-import { AttachmentFactory } from 'test/factories/make-attachmet'
+import { AttachmentFactory } from 'test/factories/make-attachment'
 import { QuestionAttachmentFactory } from 'test/factories/make-question-attachment'
 
 describe('Edit question (E2E)', () => {

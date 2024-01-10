@@ -8,7 +8,7 @@ import { StudentFactory } from 'test/factories/make-student'
 import { DatabaseModule } from '@/infra/database/database.module'
 import { QuestionFactory } from 'test/factories/make-question'
 import { AnswerFactory } from 'test/factories/make-answer'
-import { AttachmentFactory } from 'test/factories/make-attachmet'
+import { AttachmentFactory } from 'test/factories/make-attachment'
 import { AnswerAttachmentFactory } from 'test/factories/make-answer-attachment'
 
 describe('Edit answer (E2E)', () => {
