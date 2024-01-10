@@ -58,8 +58,8 @@ describe('Get question by slug', () => {
 
     expect(result.value).toMatchObject({
       question: expect.objectContaining({
+        title: question.title,
         author: 'John Doe',
-        slug: 'example-question',
         attachments: expect.arrayContaining([
           expect.objectContaining({
             title: 'Some attachment',
