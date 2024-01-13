@@ -35,6 +35,10 @@ describe('On answer created (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   it('should send a notification when answer is created', async () => {
     const user = await studentFactory.makePrismaStudent()
 

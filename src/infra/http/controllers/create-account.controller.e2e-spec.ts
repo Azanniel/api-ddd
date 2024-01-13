@@ -19,6 +19,10 @@ describe('Create account (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   test('[POST] /accounts', async () => {
     const response = await request(app.getHttpServer()).post('/accounts').send({
       name: 'John Doe',

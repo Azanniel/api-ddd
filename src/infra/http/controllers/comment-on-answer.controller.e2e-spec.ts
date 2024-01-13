@@ -34,6 +34,10 @@ describe('Comment on answer (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   test('[POST] /answers/:answerId/comments', async () => {
     const user = await studentFactory.makePrismaStudent()
 

@@ -34,6 +34,10 @@ describe('Choose question best answer (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   test('[PATCH] /answers/:id/choose-as-best', async () => {
     const user = await studentFactory.makePrismaStudent()
 

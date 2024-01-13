@@ -46,6 +46,10 @@ describe('Edit answer (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   test('[PUT] /answers/:id', async () => {
     const user = await studentFactory.makePrismaStudent()
 

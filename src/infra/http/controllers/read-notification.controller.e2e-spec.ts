@@ -31,6 +31,10 @@ describe('Read notification (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   test('[PATCH] /notifications/:notificationId/read', async () => {
     const user = await studentFactory.makePrismaStudent({ name: 'John Doe' })
 

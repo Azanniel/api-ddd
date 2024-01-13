@@ -40,6 +40,10 @@ describe('Get question by slug (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   test('[GET] /questions/:slug', async () => {
     const user = await studentFactory.makePrismaStudent({ name: 'John Doe' })
 

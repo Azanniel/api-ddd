@@ -38,6 +38,10 @@ describe('On question best answer chosen (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   it('should send a notification when question best answer is chosen', async () => {
     const user = await studentFactory.makePrismaStudent()
 

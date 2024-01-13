@@ -34,6 +34,10 @@ describe('Delete answer (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   test('[DELETE] /answers/:id', async () => {
     const user = await studentFactory.makePrismaStudent()
 

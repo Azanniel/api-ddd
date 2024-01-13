@@ -31,6 +31,10 @@ describe('Fetch question answers (E2E)', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   test('[GET] /questions/:questionId/answers', async () => {
     const user = await studentFactory.makePrismaStudent()
 
