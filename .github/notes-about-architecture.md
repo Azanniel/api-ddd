@@ -44,3 +44,7 @@ No entanto, aqui utilizamos REST, e vamos discutir quais os desafios enfrentamos
 O OverFetching é quando retornamos informações demais do backend em rotas que não precisam daquelas informações. Por exemplo: Em uma requisição trazer os dados do autor, pergunta e respostas. No entanto se eu precisa dos dados de autor e pergunta somente eu não terei, pois terei uma rota que retorna tudo.
 
 O UnderFetching é quando não estamos tendo dados suficientes com uma chamada para um endpoint do backed, forçando-nos a chamar um segundo endpoint. Ou seja, é quando temos dados de menos e temos que chamar outros endpoints para obter os dados que precisamos e acabamos executando muitas chamadas ao backend.
+
+## 📦 Cache na aplicação
+
+O cache é uma técnica utilizada para otimizar o desempenho de ações que podem levar mais tempo, como buscas de dados. Veremos que o cache pode armazenar informações estáticas, como dados de uma tabela que raramente mudam. No entanto, é importante ter cuidado, pois o cache pode conter informações desatualizadas.
