@@ -1,6 +1,8 @@
+import { Injectable } from '@nestjs/common'
 import { CacheRepository } from '../cache-repository'
 import { RedisService } from './redis.service'
 
+@Injectable()
 export class RedisCacheRepository implements CacheRepository {
   private expirationCache = 60 * 15 // 15 minutes
 
@@ -15,6 +17,6 @@ export class RedisCacheRepository implements CacheRepository {
   }
 
   async delete(key: string): Promise<void> {
-    await this.delete(key)
+    await this.redis.del(key)
   }
 }
