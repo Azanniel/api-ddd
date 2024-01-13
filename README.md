@@ -56,6 +56,11 @@ AWS_ACCESS_KEY_ID=""
 AWS_SECRET_ACCESS_KEY=""
 
 CLOUDFLARE_ACCOUNT_ID=""
+
+# Redis
+REDIS_HOST=""
+REDIS_PORT=""
+REDIS_DB=""
 ```
 
 A estratégia de autenticação usada é JWT com algorítimo RSA-256. Logo você deve gerar as chaves pública e privada do algoritmo e convertê-las para Base64.
